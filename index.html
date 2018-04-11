@@ -99,6 +99,36 @@
 					<div class="foot_rewite"></div>
 				</div>
 			</div>
+			<div class = 'audio'>
+				<audio controls="controls" preload id='music' loop="true">
+					<source  src="a_meng.mp3" type="audio/mpeg"/>
+				</audio>
+				<span onclick='pause_time();'>播放/暂停</span>
+				<span onclick='resetTime();'>重新播放</span>
+			</div>
 		</div>
+		<script>
+			var music = document.getElementById('music')
+			var playStatus = false;
+			var lastRunTime = Date.now();
+			//重新播放按钮
+			var resetTime = function(){
+				music.currentTime = 0
+			}
+			var pause_time=function(){
+				var nowTime = Date.now();
+				if( (nowTime-lastRunTime)< 150){
+					return ;
+				}
+				if(!playStatus){
+					music.play() //播放
+				}else{
+					music.pause() //暂停
+				}
+				playStatus = !playStatus
+				lastRunTime = Date.now();
+			}
+		</script>
+	
 	</body>
 </html>

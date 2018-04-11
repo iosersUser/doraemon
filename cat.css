@@ -528,6 +528,9 @@
 }
 
 
-
+/*播放音乐的部分*/
+.audio span{
+	cursor: pointer;
+}
 
 
